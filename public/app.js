@@ -1,4 +1,4 @@
-const endPoint = "http://localhost:8080/cities";
+const endPoint = "http://localhost:8080/locations";
 const mainTable = document.getElementById("main");
 const sortBtn = document.getElementById("sort-btn");
 
@@ -8,6 +8,11 @@ let ascOrder = true;
  * Utility Functions
  *************************************************/
 
+/**
+ * Sorts the main table in ascending or descending
+ * order based on the asc parameter. If asc is truthy,
+ * the table will be sorted in ascending order.
+ */
 const sortTable = (asc = true) => {
   let sorted = false;
 
@@ -21,7 +26,7 @@ const sortTable = (asc = true) => {
       swapRequired = asc ? a > b : a <= b;
 
       if (swapRequired) {
-        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        mainTable.insertBefore(rows[i + 1], rows[i]);
         sorted = false;
         break;
       }
@@ -34,7 +39,7 @@ const sortTable = (asc = true) => {
  *************************************************/
 
 /**
- * Fetches location data from API end point
+ * Fetches location data from API end point.
  */
 const getLocations = () => {
   return fetch(endPoint)
@@ -49,7 +54,6 @@ const getLocations = () => {
 /**
  * Generates a new html table row which is inserted
  * onto the end of the main table.
- * @param {State, city} location
  */
 const addCityElem = (city) => {
   const tr = document.createElement("tr");

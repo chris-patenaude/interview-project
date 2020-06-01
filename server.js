@@ -5,7 +5,7 @@ const data = require("./data.json");
 
 app.use(express.static(__dirname + "/public"));
 
-app.get("/cities", (req, res, next) => {
+app.get("/locations", (req, res, next) => {
   const filteredData = data.filter((item) => item.State == "Oregon");
   res.status(200).send(filteredData);
 });

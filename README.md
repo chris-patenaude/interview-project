@@ -22,3 +22,9 @@ The project will be a simple table that displays cities in the State of Oregon. 
 * There is no need to worry about styling for this project but if you would like to add some feel free to.
 * There should be no additional dependencies added to the project.
 * Please use Es6+ syntax for all JavaScript.
+
+# Solution Endpoints
+
+- Main Page: http://localhost:8080
+- City Data: http://localhost:8080/locations
+
