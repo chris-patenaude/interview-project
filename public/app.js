@@ -13,7 +13,7 @@ let ascOrder = true;
  * order based on the asc parameter. If asc is truthy,
  * the table will be sorted in ascending order.
  */
-const sortTable = (asc = true) => {
+const sortTable = () => {
   let sorted = false;
 
   while (!sorted) {
@@ -23,7 +23,7 @@ const sortTable = (asc = true) => {
     for (let i = 1; i < rows.length - 1; i++) {
       const a = rows[i].innerText.toLowerCase();
       const b = rows[i + 1].innerText.toLowerCase();
-      swapRequired = asc ? a > b : a <= b;
+      swapRequired = ascOrder ? a > b : a <= b;
 
       if (swapRequired) {
         mainTable.insertBefore(rows[i + 1], rows[i]);
@@ -32,6 +32,9 @@ const sortTable = (asc = true) => {
       }
     }
   }
+
+  const order = ascOrder ? "Z-A \u2191" : "A-Z \u2193";
+  sortBtn.textContent = `Sort ${order}`;
 };
 
 /*************************************************
@@ -67,11 +70,10 @@ const addCityElem = (city) => {
  * city names based on fetched data.
  */
 const buildCityTable = () => {
-  getLocations().then((locations) =>
-    locations.forEach((location) => {
-      addCityElem(location.city);
-    })
-  );
+  getLocations().then((locations) => {
+    locations.forEach((location) => addCityElem(location.city));
+    sortTable();
+  });
 };
 
 /*************************************************
