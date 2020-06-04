@@ -3,9 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
     <script src="/app.js" defer></script>
     <title>Oregon Cities</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      .color-prime {
+        background-color: #d73f09;
+        color: white;
+      }
+
+      .color-secondary {
+        background-color: black;
+        color: white;
+      }
+
+      .page-title {
+        font-size: 18px;
+        padding: 10px;
+      }
+
+      .wrapper {
+        display: grid;
+        grid-template-areas:
+          "banner"
+          "content"
+          "footer";
+        grid-template-rows: auto 1fr auto;
+        height: 100vh;
+      }
+
+      .banner {
+        grid-area: banner;
+      }
+
+      .tophat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100px;
+      }
+
+      .logo {
+        font-size: 52px;
+        margin-left: 10px;
+        vertical-align: middle;
+      }
+
+      .content {
+        grid-area: content;
+        padding: 20px;
+      }
+
+      .footer {
+        grid-area: footer;
+        height: 150px;
+      }
+
+      .footer-content {
+        height: 100%;
+      }
+
+      .accent {
+        height: 3px;
+        width: 100%;
+      }
+
+      .label {
+        margin-right: 20px;
+      }
+
+      .table-head {
+        padding: 5px 10px;
+      }
+
+      tr {
+        text-align: center;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #f2f2f2f2;
+      }
+
+      button {
+        padding: 0;
+        width: auto;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
